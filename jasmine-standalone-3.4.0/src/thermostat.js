@@ -1,6 +1,7 @@
 'use strict'
 
 function Thermostat() {
+  this._DEFAULT_TEMP = 20,
   this._temp = 20,
   this._minTemp = 10,
   this._maxTemp = 25,
@@ -38,5 +39,5 @@ Thermostat.prototype.powerSavingModeOn = function() {
 };
 
 Thermostat.prototype.reset = function() {
-  this._temp = 20
+  this._temp = this._DEFAULT_TEMP;
 };

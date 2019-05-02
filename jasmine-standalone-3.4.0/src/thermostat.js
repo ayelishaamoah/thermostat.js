@@ -10,12 +10,12 @@ Thermostat.prototype.getCurrentTemperature = function() {
   return this._temp;
 };
 
-Thermostat.prototype.up = function(value) {
-  this._temp += value
+Thermostat.prototype.up = function() {
+  this._temp += 1
 };
 
-Thermostat.prototype.down = function(value) {
-  this._temp -= value
+Thermostat.prototype.down = function() {
+  this._temp -= 1
 };
 
 Thermostat.prototype.powerSavingMode = function() {

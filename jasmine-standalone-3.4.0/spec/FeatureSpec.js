@@ -20,16 +20,16 @@ describe('Features', function(){
   // You can increase the temperature with an up function
   describe('up', function(){
     it('increases the temperature by a given amount', function(){
-      thermostat.up(5);
-      expect(thermostat.getCurrentTemperature()).toEqual(25);
+      thermostat.up();
+      expect(thermostat.getCurrentTemperature()).toEqual(21);
     });
   });
 
   // You can decrease the temperature with a down function
   describe('down', function(){
     it('decreases the temperature by a given amount', function(){
-      thermostat.down(5);
-      expect(thermostat.getCurrentTemperature()).toEqual(15);
+      thermostat.down();
+      expect(thermostat.getCurrentTemperature()).toEqual(19);
     });
   });
 

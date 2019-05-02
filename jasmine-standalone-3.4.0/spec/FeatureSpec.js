@@ -23,8 +23,12 @@ describe('Features', function(){
   // You can increase the temperature with an up function
   describe('up', function(){
     it('increases the temperature by a given amount', function(){
+      for(var i = 0; i <= 12; i++) {
+        thermostat.up();
+        console.log(thermostat._temp)
+      }
       thermostat.up();
-      expect(thermostat.getCurrentTemperature()).toEqual(21);
+      expect(thermostat.getCurrentTemperature()).toEqual(32);
     });
   });
 
@@ -40,7 +44,10 @@ describe('Features', function(){
   describe('powerSavingMode', function(){
     it('sets a max temp of 25 degrees', function(){
       thermostat.powerSavingMode();
-      expect(thermostat._maxTemp).toEqual(25)
+      for(var i = 0; i <= 5; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(25);
     });
   });
 

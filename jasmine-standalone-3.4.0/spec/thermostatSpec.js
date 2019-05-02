@@ -15,11 +15,7 @@ describe('Thermostat', function(){
 
   // The minimum temperature is 10 degrees
   it('has a minimum temperature of 10 degrees', function(){
-    for(var i = 0; i <= 10; i++) {
-      thermostat.down();
-        console.log(this._temp)
-    }
-    expect(thermostat._temp).toEqual(10);
+    expect(thermostat._minTemp).toEqual(10);
   });
 
   // You can increase the temperature with an up function
@@ -32,7 +28,7 @@ describe('Thermostat', function(){
 
   // You can decrease the temperature with a down function
   describe('down', function(){
-    it('decreases the temperature by a given amount', function(){
+    it('decreases the temperature by a 1  degree amount', function(){
       thermostat.down();
       expect(thermostat._temp).toEqual(19);
     });

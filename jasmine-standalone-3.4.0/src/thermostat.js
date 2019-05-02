@@ -11,7 +11,9 @@ Thermostat.prototype.getCurrentTemperature = function() {
 };
 
 Thermostat.prototype.up = function() {
+  if (this._temp < this._maxTemp) {
   this._temp += 1
+  };
 };
 
 Thermostat.prototype.down = function() {

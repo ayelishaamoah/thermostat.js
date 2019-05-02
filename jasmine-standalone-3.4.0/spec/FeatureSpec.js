@@ -23,6 +23,7 @@ describe('Features', function(){
   // You can increase the temperature with an up function
   describe('up', function(){
     it('increases the temperature by a given amount', function(){
+      thermostat.powerSavingModeOff();
       for(var i = 0; i <= 12; i++) {
         thermostat.up();
         console.log(thermostat._temp)
@@ -56,14 +57,16 @@ describe('Features', function(){
       thermostat.powerSavingModeOn();
       expect(thermostat.isPowerSavingModeOn()).toBe(true);
     });
-    // If power saving mode is on, the maximum temperature is 25 degrees
-    // it('sets a max temp of 25 degrees', function(){
-    //   thermostat.powerSavingMode();
-    //   for(var i = 0; i <= 5; i++) {
-    //     thermostat.up();
-    //   }
-    //   expect(thermostat.getCurrentTemperature()).toEqual(25);
-    // });
-  });
 
+    describe('power saving mode is on', function() {
+      // If power saving mode is on, the maximum temperature is 25 degrees
+      it('sets a max temp of 25 degrees', function(){
+        thermostat.powerSavingModeOn();
+        for(var i = 0; i <= 5; i++) {
+          thermostat.up();
+        }
+        expect(thermostat.getCurrentTemperature()).toEqual(25);
+      });
+    });
+  });
 });

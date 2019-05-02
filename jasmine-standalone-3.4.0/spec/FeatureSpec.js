@@ -14,7 +14,10 @@ describe('Features', function(){
 
   // The minimum temperature is 10 degrees
   it('has a minimum temperature of 10 degrees', function(){
-    expect(thermostat._minTemp).toEqual(10);
+    for(var i = 0; i <= 10; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
 
   // You can increase the temperature with an up function

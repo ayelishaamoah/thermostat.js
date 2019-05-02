@@ -15,7 +15,9 @@ Thermostat.prototype.up = function() {
 };
 
 Thermostat.prototype.down = function() {
-  this._temp -= 1
+  if (this._temp > this._minTemp) {
+    this._temp -= 1
+  };
 };
 
 Thermostat.prototype.powerSavingMode = function() {

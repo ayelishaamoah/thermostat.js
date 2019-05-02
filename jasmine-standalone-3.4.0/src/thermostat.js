@@ -2,6 +2,7 @@
 
 function Thermostat() {
   this.temp = 20
+  this._minTemp = 10
 };
 
 Thermostat.prototype.up = function(value) {

@@ -45,6 +45,11 @@ describe('Features', function(){
     it('is on by defualt', function(){
       expect(thermostat.isPowerSavingModeOn()).toBe(true);
     });
+
+    it('can be turned off', function() {
+      thermostat.powerSavingModeOff();
+      expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    });
     // If power saving mode is on, the maximum temperature is 25 degrees
     // it('sets a max temp of 25 degrees', function(){
     //   thermostat.powerSavingMode();

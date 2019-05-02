@@ -6,6 +6,7 @@ describe('Thermostat', function(){
 
   beforeEach(function(){
     thermostat = new Thermostat();
+
   });
 
   // Thermostat starts at 20 degrees
@@ -39,6 +40,11 @@ describe('Thermostat', function(){
     //Power saving mode is on by default
     it('is on by defualt', function(){
       expect(thermostat.powerSavingMode).toBe(true);
+    });
+
+    it('can be turned off', function() {
+      thermostat.powerSavingModeOff();
+      expect(thermostat.powerSavingMode).toBe(false);
     });
     // it('sets a max temp of 25 degrees', function(){
     //   thermostat.powerSavingMode();

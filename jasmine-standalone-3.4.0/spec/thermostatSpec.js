@@ -60,4 +60,12 @@ describe('Thermostat', function(){
       });
     });
   });
+
+  //You can reset the temperature to 20 with a reset function
+  describe('reset', function(){
+    it('sets the temperature to 20', function(){
+    thermostat.reset();
+    expect(thermostat._temp).toEqual(20);
+    });
+  });
 });

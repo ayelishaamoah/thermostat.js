@@ -9,7 +9,7 @@ describe('Features', function(){
 
   // Thermostat starts at 20 degrees
   it('has a default temperature of 20 degrees', function(){
-    expect(thermostat.temp).toEqual(20);
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
   // The minimum temperature is 10 degrees
@@ -21,7 +21,7 @@ describe('Features', function(){
   describe('up', function(){
     it('increases the temperature by a given amount', function(){
       thermostat.up(5);
-      expect(thermostat.temp).toEqual(25);
+      expect(thermostat.getCurrentTemperature()).toEqual(25);
     });
   });
 
@@ -29,7 +29,16 @@ describe('Features', function(){
   describe('down', function(){
     it('decreases the temperature by a given amount', function(){
       thermostat.down(5);
-      expect(thermostat.temp).toEqual(15);
+      expect(thermostat.getCurrentTemperature()).toEqual(15);
     });
   });
+
+  // If power saving mode is on, the maximum temperature is 25 degrees
+  describe('powerSavingMode', function(){
+    it('sets a max temp of 25 degrees', function(){
+      thermostat.powerSavingMode();
+      expect(thermostat._maxTemp).toEqual(25)
+    });
+  });
+
 });

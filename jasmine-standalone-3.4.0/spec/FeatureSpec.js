@@ -26,7 +26,6 @@ describe('Features', function(){
       thermostat.powerSavingModeOff();
       for(var i = 0; i <= 12; i++) {
         thermostat.up();
-        console.log(thermostat._temp)
       }
       thermostat.up();
       expect(thermostat.getCurrentTemperature()).toEqual(32);

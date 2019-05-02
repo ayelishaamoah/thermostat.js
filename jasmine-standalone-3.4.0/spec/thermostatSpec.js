@@ -11,7 +11,7 @@ describe('Thermostat', function(){
 
   // Thermostat starts at 20 degrees
   it('has a default temperature', function(){
-    expect(thermostat._temp).toEqual(20);
+    expect(thermostat._currentTemp).toEqual(20);
   });
 
   // The minimum temperature is 10 degrees
@@ -23,7 +23,7 @@ describe('Thermostat', function(){
   describe('up', function(){
     it('increases the temperature by a given amount', function(){
       thermostat.up();
-      expect(thermostat._temp).toEqual(21);
+      expect(thermostat._currentTemp).toEqual(21);
     });
   });
 
@@ -31,7 +31,7 @@ describe('Thermostat', function(){
   describe('down', function(){
     it('decreases the temperature by a 1  degree amount', function(){
       thermostat.down();
-      expect(thermostat._temp).toEqual(19);
+      expect(thermostat._currentTemp).toEqual(19);
     });
   });
 
@@ -65,7 +65,7 @@ describe('Thermostat', function(){
   describe('reset', function(){
     it('sets the temperature to 20', function(){
     thermostat.reset();
-    expect(thermostat._temp).toEqual(20);
+    expect(thermostat._currentTemp).toEqual(20);
     });
   });
 });

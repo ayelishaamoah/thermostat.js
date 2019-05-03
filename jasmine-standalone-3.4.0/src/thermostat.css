@@ -1,0 +1,15 @@
+.hidden {
+  display: none;
+}
+
+.high-usage {
+  color: red;
+}
+
+.medium-usage {
+  color: orange;
+}
+
+.low-usage {
+  color: green;
+}

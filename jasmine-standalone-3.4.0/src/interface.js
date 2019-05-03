@@ -1,0 +1,64 @@
+$(document).ready(function(){
+
+$.get("http://api.openweathermap.org/data/2.5/weather?id=2643743&units=metric&APPID=2709239d48bf8ec9d4849b2ff90a196a", function(response) {
+    var imgId = response.weather[0].id;
+
+    $('#weather-desc').text(response.weather[0].description)
+    $('#local-temp').text(Math.round(response.main.temp) + ' degrees')
+    $('#humidity-desc').text(response.main.humidity + '%')
+    $('#wind-desc').text(response.weather.wind.speed + ' mph')
+    $('#local-weather-icon').attr('src', `https://openweathermap.org/img/w/${imgId}.png`)
+  });
+
+
+  var thermostat = new Thermostat();
+  
+  getTemperature();
+
+  $('#temperature').text(`${thermostat.getCurrentTemperature()} degrees`);
+
+  $('#powersave-mode-title').text('Powersaving Mode On');
+
+  function getTemperature() {
+    $('#temperature').text(`${thermostat.getCurrentTemperature()} degrees`);
+    $('#temperature').addClass(thermostat.getEnergyUsage())
+  }
+
+  $('#increase-temp-btn').on('click', function(){
+    $('#temperature').removeClass(thermostat.getEnergyUsage())
+    thermostat.up();
+    getTemperature();
+  });
+
+  $('#decrease-temp-btn').on('click', function(){
+    $('#temperature').removeClass(thermostat.getEnergyUsage())
+    thermostat.down();
+    getTemperature();
+  });
+
+  $('#reset-temp-btn').on('click', function(){
+    $('#temperature').removeClass(thermostat.getEnergyUsage())
+    thermostat.reset();
+    getTemperature();
+  });
+
+  $('#powersave-on-btn').on('click', function(){
+    console.log("clicked button");
+    $('#powersave-on-btn').addClass('hidden');
+    $('#powersave-off-btn').removeClass('hidden');
+    $('#powersave-mode-title').text('Powersaving Mode On');
+  });
+
+  $('#powersave-off-btn').on('click', function(){
+    console.log("clicked button");
+    thermostat.powerSavingModeOff();
+    $('#powersave-on-btn').removeClass('hidden');
+    $('#powersave-off-btn').addClass('hidden');
+    $('#powersave-mode-title').text('Powersaving Mode Off');
+  });
+});
+
+
+
+
+// $.get("http://api.openweathermap.org/data/2.5/weather?id=264374&APPID=2709239d48bf8ec9d4849b2ff90a196a", function(response) { console.log(response.name) });

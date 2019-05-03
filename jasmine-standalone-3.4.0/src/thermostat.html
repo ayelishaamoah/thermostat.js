@@ -2,26 +2,46 @@
 <html>
 <head>
 <title>Thermostat App</title>
+  <link rel="stylesheet" href="./thermostat.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 <body>
-  <script type="text/javascript" src="./thermostat.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="./thermostat.js"></script>
+  <script type="text/javascript" src="./interface.js"></script>
   <header id="thermostat-header">
     <h1>Thermostat App</h1>
   </header>
   <section id="thermostat-wrapper">
     <section id="temperature-controls">
       <h4 id="temperature-title">Current Temperature</h4>
-      <button class='button' id="increase-temp" type="button" name="increase-temp">+</button>
-      <button class='button' id="decrease-temp" type="button" name="decrease-temp">-</button>
-      <button class='button' id="reset-temp" type="button" name="reset-temp">reset</button>
+      <h4 id="temperature">20 degrees</h4>
+      <button class='button' id="increase-temp-btn" type="button" name="increase-temp">+</button>
+      <button class='button' id="decrease-temp-btn" type="button" name="decrease-temp">-</button>
+      <button class='button' id="reset-temp-btn" type="button" name="reset-temp">reset</button>
     </section>
     <section id="powersave-controls">
-      <h4>Powersave Mode</h4>
-      <button class='button' id="powersave-on" type="button" name="powersave-on">Turn On</button>
-      <button class='button' id="powersave-off" type="button" name="powersave-off">Turn off</button>
+      <h4 id="powersave-mode-title">Powersaving Mode On</h4>
+      <button class='hidden button' id="powersave-on-btn" type="button" name="powersave-on">Turn On</button>
+      <button class='button' id="powersave-off-btn" type="button" name="powersave-off">Turn off</button>
+    </section>
+    <section id="local-weather">
+      <h3>Local Weather</h3>
+      <h4 id="city-name">London</h4>
+      <h4 id="local-temp">12 degress</h4>
+      <img id="local-weather-icon" src="https://openweathermap.org/img/w/04d.png" alt="Weather London , GB" width="50" height="50">
+      <h4 id="weather-desc">Broken clouds</h4>
+      <table id="weather-table">
+        <tr class='table-row'>
+          <td class="table-header">Wind Speed</td>
+          <td id="wind-desc">2.6 mph</td>
+        </tr>
+        <tr class='table-row'>
+          <td class="table-header">Humidity</td>
+          <td id="humidity-desc">71%</td>
+        </tr>
+      </table>
     </section>
   </section>
 </body>

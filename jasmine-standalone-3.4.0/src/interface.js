@@ -1,19 +1,34 @@
 $(document).ready(function(){
 
-$.get("http://api.openweathermap.org/data/2.5/weather?id=2643743&units=metric&APPID=2709239d48bf8ec9d4849b2ff90a196a", function(response) {
-    var imgId = response.weather[0].id;
-
-    $('#weather-desc').text(response.weather[0].description)
-    $('#local-temp').text(Math.round(response.main.temp) + ' degrees')
-    $('#humidity-desc').text(response.main.humidity + '%')
-    $('#wind-desc').text(response.weather.wind.speed + ' mph')
-    $('#local-weather-icon').attr('src', `https://openweathermap.org/img/w/${imgId}.png`)
-  });
-
-
   var thermostat = new Thermostat();
-  
   getTemperature();
+  getWeather("London", "UK");
+
+  function getWeather(cityName, countryCode) {
+    $.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&units=metric&APPID=2709239d48bf8ec9d4849b2ff90a196a`, function(response) {
+      var imgId = response.weather[0].icon;
+
+      $('#weather-desc').text(response.weather[0].description);
+      $('#local-temp').text(Math.round(response.main.temp) + ' degrees');
+      $('#humidity-desc').text(response.main.humidity + '%');
+      $('#wind-desc').text(response.wind.speed + ' mph');
+      $('#local-weather-icon').attr('src', `https://openweathermap.org/img/w/${imgId}.png`);
+      $('#city-name').text(response.name);
+    });
+  };
+
+  $('#submit-location').click(function(event) {
+    console.log('submit');
+
+    var formData = $('#current-location-form').serializeArray();
+    city = formData[0].value;
+    countryCode = formData[1].value;
+
+    getWeather(city, countryCode);
+
+    $('#current-location-form')[0].reset();
+
+  });
 
   $('#temperature').text(`${thermostat.getCurrentTemperature()} degrees`);
 
